@@ -11,9 +11,9 @@
     <header>
         <nav>
             <a class="navlink1" href="">Shun Lassal</a>
-            <a class="navlink2" href="">A propos</a>
-            <a class="navlink2" href="">Projets</a>
-            <a class="navlink2" href="">Contact</a>
+            <a class="navlink2" href="#apropos">A propos</a>
+            <a class="navlink2" href="#projets">Projets</a>
+            <a class="navlink2" href="#contact">Contact</a>
         </nav>
     </header>
     <section class="accueil">
@@ -23,7 +23,7 @@
     <section class="spacing">
     </section>
     
-    <section class="apropos">
+    <section id="apropos">
         <section class="container">
             <h3>A propos</h3>
         
@@ -65,7 +65,7 @@
     <section class="spacing">
     </section>
 
-    <section class="projets">
+    <section id="projets">
         <section class="container">
             <h3>Mes projets</h3>
             <section>
@@ -78,9 +78,28 @@
     <section class="spacing">
     </section>
 
-    <section class="contact">
+    <section id="contact">
         <section class="container">
             <h3>Contact</h3>
+            <section class="form">
+                <section class="info">
+                    <h4>Mes infos</h4>
+                    <span class="infos"><b>E-mail:</b> shun.lassal@laplateforme.io</span>
+                    <span class="infos"><b>Numéro:</b> 06.33.71.57.13</span>
+                </section>
+                <form id="form" action="" method="POST">
+                    <label for="Prenom">Prénom</label>
+                    <input name="Prenom" type="text">
+                    <label for="Nom">Nom</label>
+                    <input name="Nom" type="text">
+                    <label for="mail">E-mail</label>
+                    <input name="mail" type="mail">
+                    <label for="text">Message</label>
+                    <textarea name="text" id="textarea" cols="30" rows="10"></textarea>
+                    <input class="git" name="submit" type="submit" value="Envoyer">
+                </form>
+            </section>
+            <h3>Au plaisir, à bientot !</h3>
         </section>
     </section>
 </body>
