@@ -143,6 +143,12 @@ section.inside3 {
     justify-content:center;
 }
 
+section.tabskills {
+    background-color: rgba(200,200,200, 0.1);
+    margin:10px;
+    border-radius:5px;
+    padding:10px;
+}
 
 span#underpic{
     text-align:center;
@@ -158,6 +164,7 @@ span.skills {
     color:#BDBDBD;
     font-size:28px;
     font-family: 'Slabo 27px', serif;
+    align-self:center;
 }
 
 p.profildesc {
@@ -213,6 +220,8 @@ section#projets {
     width:120px;
     align-self:center;
     margin:20px;
+    font-family: 'Slabo 27px', serif;
+    font-size:18px;
 }
 .git:hover {
 	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
@@ -223,7 +232,11 @@ section#projets {
 	top:1px;
 }
 
-section#contact{
+hr {
+    width:30Vh;
+}
+
+section#contacte{
     background-image: url("images/background3.jpg");
     background-position:contain;
     background-repeat:no-repeat;
@@ -264,6 +277,11 @@ input {
     font-size:26px;
     border: 0px;
     border-bottom:1px solid white;
+    font-family: 'Slabo 27px', serif;
+}
+
+input#mail {
+    font-size:20px;
 }
 
 textarea {
@@ -272,6 +290,7 @@ textarea {
     font-size:26px;
     border: 0px;
     border-bottom:1px solid white;
+    font-family: 'Slabo 27px', serif;
 }
 
 label {
@@ -279,6 +298,8 @@ label {
     color:#BDBDBD;
     text-align:center;
     text-decoration:bold;
+    font-family: 'Slabo 27px', serif;
+    margin:5px;
 }
 
 h4 {
@@ -286,10 +307,12 @@ h4 {
     color:#BDBDBD;
     text-align:center;
     text-decoration:underline;
+    font-family: 'Slabo 27px', serif;
 }
 
 span.infos {
     font-size:38px;
     text-align:center;
     color:#BDBDBD;
+    font-family: 'Slabo 27px', serif;
 }

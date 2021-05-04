@@ -42,21 +42,25 @@
                 </section>
 
                 <section class="inside3">
-                    <span class="skills">Mes compétences..</span>
-                    <ul>
-                        <li>HTML5 & CSS</li>
-                        <li>SQL</li>
-                        <li>PHP</li>
-                        <li>Javascript/JQuery</li>
-                    </ul>
+                    <section class="tabskills">
+                        <span class="skills">Mes compétences..</span>
+                        <ul>
+                            <li>HTML5 & CSS</li>
+                            <li>SQL</li>
+                            <li>PHP</li>
+                            <li>Javascript/JQuery</li>
+                        </ul>
+                    </section>
                     <hr/>
-                    <span class="skills">J'aime..</span>
-                    <ul>
-                        <li>La nature</li>
-                        <li>Les jeux vidéos</li>
-                        <li>Le sport</li>
-                        <li>Les voyages</li>
-                    </ul>
+                    <section class="tabskills">
+                        <span class="skills">J'aime..</span>
+                            <ul>
+                                <li>La nature</li>
+                                <li>Les jeux vidéos</li>
+                                <li>Le sport</li>
+                                <li>Les voyages</li>
+                            </ul>
+                    </section>
                 </section>
 
         </section>
@@ -78,9 +82,9 @@
     <section class="spacing">
     </section>
 
-    <section id="contact">
+    <section id="contacte">
         <section class="container">
-            <h3>Contact</h3>
+            <h3 id="contact">Contact</h3>
             <section class="form">
                 <section class="info">
                     <h4>Mes infos</h4>
@@ -89,11 +93,11 @@
                 </section>
                 <form id="form" action="" method="POST">
                     <label for="Prenom">Prénom</label>
-                    <input name="Prenom" type="text">
+                    <input name="Prenom" type="text" placeholder="Jean-louis">
                     <label for="Nom">Nom</label>
-                    <input name="Nom" type="text">
+                    <input name="Nom" type="text" placeholder="Marquis">
                     <label for="mail">E-mail</label>
-                    <input name="mail" type="mail">
+                    <input id="mail" name="mail" type="mail" placeholder="Jean-louis.Marquis@mail.com">
                     <label for="text">Message</label>
                     <textarea name="text" id="textarea" cols="30" rows="10"></textarea>
                     <input class="git" name="submit" type="submit" value="Envoyer">
