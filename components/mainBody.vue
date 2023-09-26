@@ -47,7 +47,7 @@
 
         </div>
         <div class="container h-fit w-full flex flex-col justify-start px-2">
-          <div class="h-44 flex flex-col justify-center items-start">
+          <div class="h-44 flex flex-col justify-center items-center sm:items-start">
             <h1 class="text-4xl sm:text-5xl drop-shadow-md duration-300 font-bold">
               <slot name="h1"></slot>
             </h1>

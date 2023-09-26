@@ -261,66 +261,56 @@ onMounted(fetchTimeTerms);
 </script>
 
 <template>
-  <div class="flex flex-col justify-start items-center">
-    <div class="w-full">
-      <div class="" style="background-color:black">
-        <div class="h-44 flex flex-col justify-center items-center">
-          <h1 class="text-5xl font-extrabold text-white drop-shadow-md mx-auto font-minecraft tracking-widest" @click="console.log(timeTerms)">TO DO LIST !</h1>
+  <MainBody>
+    <template v-slot:h1>Todo List</template>
+    <div class="flex flex-col md:flex-row justify-evenly items-center w-full pb-4 space-x-0 md:space-x-12 space-y-12 md:space-y-0">     
+      <!-- Term Module -->
+      <div class="w-2/3 md:w-1/3 min-h-72 max-h-96 h-72 text-gray-900 flex flex-col justify-start items-center">
+        <span class="px-4 text-gray-900 drop-shadow-md border-b-2 border-b-gray-800 w-full text-center">Time Terms</span>
+        <div class="w-full h-full overflow-y-scroll px-1">
+          <div v-if="timeTerms && timeTerms.length > 0" v-for="timeTerm in timeTerms" :key="timeTerm._id" :class="['text-gray-900 flex flex-row justify-start items-center', timeTerm._id === selectedTermId ? 'bg-gray-200' : 'bg-gray-100']" @click="fetchTodos(timeTerm._id)">
+            <!-- +REGLER CA JE VEUX QUE SA TRANSLATE QUAND C'EST SELECTIONNER-->
+            <span :class="['flex-1 text-xl duration-200', timeTerm._id === selectedTermId ? 'translate-x-4 font-medium tracking-wider' : '']">{{ timeTerm.termDescription }}</span>
+            <!-- AU DESSUS @-->
+            <div class="w-1/6 flex flex-row justify-evenly items-center h-12 z-10">
+              <button @click="deleteTimeTerm(timeTerm._id)" :class="[' w-full text-red-500 text-xl h-full', timeTerm._id === selectedTermId ? 'hover:bg-gray-300' : 'hover:bg-gray-200']">X</button>
+            </div>
+          </div>
+            <p v-else class="flex flex-col justify-center items-center h-full text-gray-900">No time terms found</p>
         </div>
-        <div class="flex flex-col justify-center items-center border py-8">
-          <div class="flex flex-row justify-evenly items-center w-full pb-4">
-            
-            <!-- Term Module -->
-            <div class="w-52 h-72 border flex flex-col justify-start items-center">
-              <span class="p-2 font-minecraft text-white drop-shadow-md">Time Terms</span>
-              <div class="w-full h-full bg-zinc-600 overflow-y-scroll">
-                <div v-if="timeTerms && timeTerms.length > 0" v-for="timeTerm in timeTerms" :key="timeTerm._id" :class="['h-8 border flex flex-row justify-start items-center', timeTerm._id === selectedTermId ? 'bg-green-400' : 'bg-gray-400']" @click="fetchTodos(timeTerm._id)">
-                  <span class="flex-1 font-minecraft text-sm p-1">{{ timeTerm.termDescription }}</span>
-                  <div class="w-1/4 flex flex-row justify-evenly items-center">
-                    <button @click="deleteTimeTerm(timeTerm._id)" :class="['drop-shadow w-full text-red-500 text-xl', timeTerm._id === selectedTermId ? 'hover:bg-green-500' : 'hover:bg-gray-500']">X</button>
-                  </div>
-                </div>
-                  <p v-else class="flex flex-col justify-center items-center h-full text-white">No time terms found</p>
+        <div class="flex flex-row justify-start w-full">
+          <input v-model="newTermDescription" maxlength="32" type="text" name="newterm" id="newterm" class="w-full bg-gray-100 h-12 outline-none text-4xl border-t-2 border-t-gray-800">
+          <button @click="addNewTimeTerm" type="button" class="w-12 px-2 text-gray-900 drop-shadow-md hover:bg-gray-200 border-t-2 border-t-gray-800 text-2xl hover:text-4xl duration-500">+</button>
+        </div>
+      </div>
+      <!-- Term Module End -->
+      
+      <!-- Task Module -->
+        <div class="w-2/3 md:w-1/3 min-h-72 max-h-96 h-72 flex flex-col justify-start items-center">
+          <span class="px-2 text-gray-900 drop-shadow-md border-b-2 border-b-gray-800 w-full text-center">Tasks</span>
+          <div class="w-full h-full overflow-y-scroll px-1">
+            <!-- Fetch Todos (Tasks) based on the selectedTermId -->
+            <div v-if="todos && todos.length > 0" v-for="todo in todos" :key="todo._id" class="text-gray-900 flex flex-row justify-start items-center bg-gray-100 hover:bg-gray-200 h-12">
+              <div class="py-1 px-2">
+                <input type="checkbox" :checked="todo.taskDone" @change="updateTodoCheck(todo._id, !todo.taskDone)" class="p-1">
               </div>
-              <div class="flex flex-row justify-start w-full">
-                <input v-model="newTermDescription" type="text" name="newterm" id="newterm" class="w-full">
-                <button @click="addNewTimeTerm" type="button" class="px-2 text-white font-minecraft drop-shadow-md hover:bg-amber-700">+</button>
+              <span class="flex-1 text-xl overflow-x-scroll">{{ todo.taskDescription }}</span>
+              <div class="w-1/4 flex flex-row justify-evenly items-center">
+                <button @click="moveTodoUp(todo._id)" class=""><Icon name="uil:arrow-up" size="1.8em" class="text-gray-900 hover:bg-gray-300"/></button>
+                <button @click="moveTodoDown(todo._id)" class=""><Icon name="uil:arrow-down" size="1.8em" class="text-gray-900 hover:bg-gray-300"/></button>
+                <button @click="deleteTodo(todo._id)" class="font-medium w-full text-red-600 text-xl hover:bg-gray-300">X</button>
               </div>
             </div>
-            <!-- Term Module End -->
-
-            <!-- Task Module -->
-              <div class="w-96 h-72 border flex flex-col justify-start items-center">
-                <span class="p-2 font-minecraft text-white drop-shadow-md">Tasks</span>
-                <div class="w-full h-full bg-zinc-600">
-                  <!-- Fetch Todos (Tasks) based on the selectedTermId -->
-                  <div v-if="todos && todos.length > 0" v-for="todo in todos" :key="todo._id" class="h-8 border flex flex-row justify-start items-center bg-gray-400">
-                    <div class="py-1 px-2">
-                      <input type="checkbox" :checked="todo.taskDone" @change="updateTodoCheck(todo._id, !todo.taskDone)" class="p-1">
-                    </div>
-                    <span class="flex-1 font-minecraft">{{ todo.taskDescription }}</span>
-                    <div class="w-1/4 flex flex-row justify-evenly items-center">
-                      <button @click="moveTodoUp(todo._id)" class=""><Icon name="uil:arrow-up" size="1.8em" class="text-white hover:bg-gray-500"/></button>
-                      <button @click="moveTodoDown(todo._id)" class=""><Icon name="uil:arrow-down" size="1.8em" class="text-white hover:bg-gray-500"/></button>
-                      <button @click="deleteTodo(todo._id)" class="font-bold w-full text-red-600 text-xl hover:bg-gray-500">X</button>
-                    </div>
-                  </div>
-                  <p v-else class="flex flex-col justify-center items-center h-full text-white">No tasks found</p>
-                  <!-- Fetch Todos (Tasks) based on the selectedTermId -->
-                </div>
-                <div class="flex flex-row justify-start w-full">
-                  <input v-model="newTaskDescription" type="text" name="newtask" id="newtask" class="w-full">
-                  <button @click="addNewTodo" type="button" class="px-2 text-white font-minecraft drop-shadow-md hover:bg-amber-700">+</button>
-                </div>
-              </div>
-              <!-- Task Module End -->
-
+            <p v-else class="flex flex-col justify-center items-center h-full text-gray-900">No tasks found</p>
+            <!-- Fetch Todos (Tasks) based on the selectedTermId -->
+          </div>
+          <div class="flex flex-row justify-start w-full">
+            <input v-model="newTaskDescription" type="text" name="newtask" id="newtask" class="w-full bg-gray-100 h-12 outline-none text-4xl border-t-2 border-t-gray-800">
+            <button @click="addNewTodo" type="button" class="w-12 px-2 text-gray-900 drop-shadow-md hover:bg-gray-200 border-t-2 border-t-gray-800 text-2xl hover:text-4xl duration-500">+</button>
           </div>
         </div>
-      </div>
-      <div class="h-96 z-10">
+        <!-- Task Module End -->
 
-      </div>
     </div>
-  </div>
+  </MainBody>
 </template>

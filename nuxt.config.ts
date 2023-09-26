@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     'nuxt-icon',
     //'@nuxt/devtools',
     '@nuxtjs/google-fonts',
-    '@hypernym/nuxt-anime'
+    '@hypernym/nuxt-anime',
+    '@pinia/nuxt'
 
   ],
   plugins: [
