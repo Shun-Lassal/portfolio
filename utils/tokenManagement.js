@@ -1,7 +1,7 @@
 //import { userTokenKey, csrfTokenKey } from '@@/secretApiKeys';
 import jwt from 'jsonwebtoken'
-const csrfTokenKey = process.env.SECRET_API_KEY;
-const userTokenKey = process.env.SECRET_API_KEY;
+const csrfTokenKey = process.env.CSRF_TOKEN_KEY;
+const userTokenKey = process.env.USER_TOKEN_KEY;
 
 //////////////////////////////////////////////////////
 // User Token
