@@ -105,7 +105,9 @@ onMounted(() => {
         
       </div>
       <div class="w-full flex flex-row items-center justify-center mt-8">
-        <span class="my-2 p-2 text-slate-300">Voir tous les articles</span>
+        <RouterLink to="/blog">
+          <span class="my-2 p-2 text-slate-400">Voir tous les articles</span>
+        </RouterLink>
       </div>
     </div>
   </MainBody>

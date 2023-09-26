@@ -23,15 +23,15 @@
               <div>
                 <span>-</span>
               </div>
-              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Blog</span></RouterLink>
+              <RouterLink to="/blog" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Blog</span></RouterLink>
               <span class="font-thin">|</span>
-              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Outils</span></RouterLink>
+              <RouterLink to="/todo" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Todo-List (Netlify 😢 MongoDB)</span></RouterLink>
               <span class="font-thin">|</span>
-              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Projets</span></RouterLink>
+              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Login Page</span></RouterLink>
               <span class="font-thin">|</span>
-              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">A propos</span></RouterLink>
+              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto line-through">A propos</span></RouterLink>
               <span class="font-thin">|</span>
-              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto">Plus</span></RouterLink>
+              <RouterLink to="" class="relative before:w-0 before:h-0.5 before:absolute before:bottom-0 before:right-0 before:bg-gray-700 before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-gray-700"><span class="my-auto line-through">Plus</span></RouterLink>
               <div>
                 <span>-</span>
               </div>
